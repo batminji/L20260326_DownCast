@@ -22,12 +22,3 @@ void APlayer::Tick()
 void APlayer::Render()
 {
 }
-
-void APlayer::Attack()
-{
-	std::cout << "공격!" << std::endl;
-}
-
-void APlayer::ApplyDamage(AActor* AttackActor)
-{
-}

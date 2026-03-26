@@ -9,8 +9,5 @@ public:
 	virtual void BeginPlay() override;
 	virtual void Tick() override;
 	virtual void Render() override;
-
-	void Attack();
-	void ApplyDamage(AActor* AttackActor);
 };
 

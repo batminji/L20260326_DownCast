@@ -14,14 +14,9 @@ public:
 
 	void Run();
 
-	void SpawnActor(const AActor* NewActor);
-	std::vector<AActor*> GetAllActorsOfClass();
-
 protected:
 	void Input();
 	void Tick();
 	void Render();
-
-	std::vector<AActor*> Actors;
 };
 
