@@ -6,5 +6,7 @@ class APlayer : public AActor
 public:
 	APlayer(FVector2D InLocation = {1, 1}, char InMesh = 'P');
 	virtual ~APlayer();
+
+	virtual void Tick() override;
 };
 

@@ -32,6 +32,8 @@ public:
 		return World;
 	}
 
+	static int KeyCode;
+
 protected:
 	void Input();
 	void Tick();
@@ -40,7 +42,6 @@ protected:
 	UWorld* World;
 
 	int bIsRunning : 1;
-	static int KeyCode;
 };
 
 #define GEngine			UEngine::GetInstance()
