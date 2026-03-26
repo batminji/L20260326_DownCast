@@ -1,14 +1,9 @@
-﻿#include "Actor.h"
+#include "Actor.h"
 #include <iostream>
-
-AActor::AActor()
-{
-	std::cout << "AActor 생성자 호출" << std::endl;
-}
+#include <Windows.h>
 
 AActor::~AActor()
 {
-	std::cout << "AActor 생성자 호출" << std::endl;
 }
 
 void AActor::BeginPlay()
@@ -23,5 +18,10 @@ void AActor::Tick()
 
 void AActor::Render()
 {
+	COORD Coordinate;
+	Coordinate.X = X;
+	Coordinate.Y = Y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Coordinate); // Window API
 
+	std::cout << Mesh;
 }

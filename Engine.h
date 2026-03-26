@@ -2,6 +2,7 @@
 #include <vector>
 
 class AActor;
+class UWorld;
 
 class UEngine
 {
@@ -14,9 +15,18 @@ public:
 
 	void Run();
 
+	inline UWorld* GetWorld() const
+	{
+		return World;
+	}
+
 protected:
 	void Input();
 	void Tick();
 	void Render();
+
+	UWorld* World;
+
+	int bIsRunning : 1;
 };
 

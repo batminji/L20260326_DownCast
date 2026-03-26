@@ -1,28 +1,20 @@
 // #include "stdafx.h"
-#include "Player.h"
+#include "Wall.h"
 #include <iostream>
 #include <Windows.h>
 
-APlayer::APlayer(int InX, int InY, char InMesh)
+AWall::AWall(int InX, int InY, char InMesh)
 {
 	X = InX;
 	Y = InY;
 	Mesh = InMesh;
 }
 
-APlayer::~APlayer()
+AWall::~AWall()
 {
 }
 
-void APlayer::BeginPlay()
-{
-}
-
-void APlayer::Tick()
-{
-}
-
-void APlayer::Render()
+void AWall::Render()
 {
 	COORD Coordinate;
 	Coordinate.X = X;
