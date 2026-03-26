@@ -3,9 +3,7 @@
 class AFloor : public AActor
 {
 public:
-	AFloor(int InX = 0, int InY = 0, int InMesh = ' ');
+	AFloor(FVector2D InLocation = { 0, 0 }, int InMesh = ' ');
 	virtual ~AFloor();
-
-	virtual void Render() override;
 };
 

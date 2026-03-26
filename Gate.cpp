@@ -1,18 +1,12 @@
 #include "stdafx.h"
 #include "Gate.h"
 
-AGate::AGate(int InX, int InY, char InMesh)
+AGate::AGate(FVector2D InLocation, char InMesh)
 {
-	X = InX;
-	Y = InY;
+	Location = InLocation;
 	Mesh = InMesh;
 }
 
 AGate::~AGate()
 {
-}
-
-void AGate::Render()
-{
-	__super::Render();
 }

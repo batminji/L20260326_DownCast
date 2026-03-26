@@ -8,7 +8,6 @@
 #include "Gate.h"
 #include "Monster.h"
 
-#include <fstream>
 
 UWorld::UWorld()
 {
@@ -25,37 +24,39 @@ UWorld::~UWorld()
 
 void UWorld::Load(std::string MapName)
 {
-	std::ifstream File(MapName);
+	std::ifstream MapStream(MapName);
 
-	if ( !File.is_open() )
+	if ( !MapStream.is_open() )
 	{
 		return;
 	}
 
-	std::string Line;
+	
 	int Y = 0;
 
-	while ( std::getline(File, Line) )
+	while ( !MapStream.eof() )
 	{
-		for ( int X = 0; X < ( int )Line.length(); ++X )
+		std::string Line;
+		std::getline(MapStream, Line);
+		for ( int X = 0; X < Line.length(); ++X )
 		{
 			char Tile = Line[X];
 
-			SpawnActor<AFloor>(X, Y);
+			SpawnActor<AFloor>()->SetActorLocation({ X, Y });
 
 			switch ( Tile )
 			{
 			case '#':
-				SpawnActor<AWall>(X, Y);
+				SpawnActor<AWall>()->SetActorLocation({ X, Y });
 				break;
 			case 'P':
-				SpawnActor<APlayer>(X, Y);
+				SpawnActor<APlayer>()->SetActorLocation({ X, Y });
 				break;
 			case 'M':
-				SpawnActor<AMonster>(X, Y);
+				SpawnActor<AMonster>()->SetActorLocation({ X, Y });
 				break;
 			case 'G':
-				SpawnActor<AGate>(X, Y);
+				SpawnActor<AGate>()->SetActorLocation({ X, Y });
 				break;
 			case ' ':
 				break;
@@ -66,14 +67,22 @@ void UWorld::Load(std::string MapName)
 		Y++;
 	}
 
-	File.close();
+	MapStream.close();
 }
 
-void UWorld::Tick()
+void UWorld::Tick(int KeyCode)
 {
 	for (auto Actor : Actors)
 	{
-		Actor->Tick();
+		APlayer* Temp = dynamic_cast<APlayer*>(Actor);
+		if ( Temp )
+		{
+			// Temp->SetActorLocation(KeyCode);
+		}
+		else
+		{
+			Actor->Tick();
+		}
 	}
 }
 

@@ -1,18 +1,12 @@
 #include "stdafx.h"
 #include "Wall.h"
 
-AWall::AWall(int InX, int InY, char InMesh)
+AWall::AWall(FVector2D InLocation, char InMesh)
 {
-	X = InX;
-	Y = InY;
+	Location = InLocation;
 	Mesh = InMesh;
 }
 
 AWall::~AWall()
 {
-}
-
-void AWall::Render()
-{
-	__super::Render();
 }

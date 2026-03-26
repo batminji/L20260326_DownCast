@@ -1,10 +1,9 @@
 #include "stdafx.h"
 #include "Player.h"
 
-APlayer::APlayer(int InX, int InY, char InMesh)
+APlayer::APlayer(FVector2D InLocation, char InMesh)
 {
-	X = InX;
-	Y = InY;
+	Location = InLocation;
 	Mesh = InMesh;
 }
 
@@ -12,15 +11,3 @@ APlayer::~APlayer()
 {
 }
 
-void APlayer::BeginPlay()
-{
-}
-
-void APlayer::Tick()
-{
-}
-
-void APlayer::Render()
-{
-	__super::Render();
-}

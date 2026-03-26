@@ -1,19 +1,24 @@
 #pragma once
+struct FVector2D
+{
+	int X;
+	int Y;
+};
+
 class AActor
 {
 public:
-	AActor(int InX = 0, int InY = 0, char InMesh = ' ')
-		: X(InX), Y(InY), Mesh(InMesh) {};
+	AActor(FVector2D InLocation = {0, 0}, char InMesh = ' ')
+		: Location(InLocation), Mesh(InMesh) {};
 	virtual ~AActor();
 
 	virtual void BeginPlay();
 	virtual void Tick();
 	virtual void Render();
 
+	void SetActorLocation(FVector2D NewLocation);
 protected:
-	int X;
-	int Y;
-
+	FVector2D Location;
 	char Mesh;
 };
 

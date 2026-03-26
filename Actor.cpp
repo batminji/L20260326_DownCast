@@ -18,9 +18,14 @@ void AActor::Tick()
 void AActor::Render()
 {
 	COORD Coordinate;
-	Coordinate.X = X * 2;
-	Coordinate.Y = Y;
+	Coordinate.X = Location.X * 2;
+	Coordinate.Y = Location.Y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Coordinate); // Window API
 
 	std::cout << Mesh;
+}
+
+void AActor::SetActorLocation(FVector2D NewLocation)
+{
+	Location = NewLocation;
 }

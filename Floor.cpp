@@ -1,18 +1,12 @@
 #include "stdafx.h"
 #include "Floor.h"
 
-AFloor::AFloor(int InX, int InY, int InMesh)
+AFloor::AFloor(FVector2D InLocation, int InMesh)
 {
-	X = InX;
-	Y = InY;
+	Location = InLocation;
 	Mesh = InMesh;
 }
 
 AFloor::~AFloor()
 {
-}
-
-void AFloor::Render()
-{
-	__super::Render();
 }

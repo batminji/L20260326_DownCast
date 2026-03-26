@@ -18,6 +18,7 @@ UEngine::~UEngine()
 void UEngine::Init()
 {
 	bIsRunning = true;
+	KeyCode = 0;
 
 	World = new UWorld();
 }
@@ -40,12 +41,12 @@ void UEngine::Run()
 
 void UEngine::Input()
 {
-	// int KeyCode = _getch();
+	KeyCode = _getch();
 }
 
 void UEngine::Tick()
 {
-	World->Tick();
+	World->Tick(KeyCode);
 }
 
 void UEngine::Render()

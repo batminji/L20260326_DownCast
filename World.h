@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 
-class AActor;
+#include "Actor.h"
 
 class UWorld
 {
@@ -19,18 +19,9 @@ public:
 	}
 
 	template<typename T>
-	AActor* SpawnActor(int InX, int InY) // template function
+	AActor* SpawnActor(FVector2D InLocation, char InMesh) // template function
 	{
-		AActor* NewActor = new T(InX, InY);
-		Actors.push_back(NewActor);
-
-		return NewActor;
-	}
-
-	template<typename T>
-	AActor* SpawnActor(int InX, int InY, char InMesh) // template function
-	{
-		AActor* NewActor = new T(InX, InY, InMesh);
+		AActor* NewActor = new T(InLocation, InMesh);
 		Actors.push_back(NewActor);
 
 		return NewActor;
@@ -42,8 +33,7 @@ public:
 	{
 		return Actors;
 	}
-
-	void Tick();
+	void Tick(int KeyCode);
 	void Render();
 
 protected:
