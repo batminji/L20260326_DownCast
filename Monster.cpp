@@ -1,6 +1,4 @@
 #include "Monster.h"
-#include <iostream>
-#include <Windows.h>
 
 AMonster::AMonster(int InX, int InY, int InMesh)
 {

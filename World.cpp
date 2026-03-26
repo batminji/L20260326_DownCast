@@ -4,7 +4,10 @@
 #include "Player.h"
 #include "Wall.h"
 #include "Floor.h"
+#include "Gate.h"
 #include "Monster.h"
+
+#include <fstream>
 
 UWorld::UWorld()
 {
@@ -21,23 +24,46 @@ UWorld::~UWorld()
 
 void UWorld::Load(std::string MapName)
 {
-	for ( int i = 0; i < 10; ++i )
+	std::ifstream File(MapName);
+
+	if ( !File.is_open() )
 	{
-		for ( int j = 0; j < 10; ++j )
-		{
-			if ( i == 0 || i == 9 || j == 0 || j == 9 )
-			{
-				SpawnActor<AWall>(i, j);
-			}
-			else
-			{
-				SpawnActor<AFloor>(i, j);
-			}
-		}
+		return;
 	}
 
-	SpawnActor<APlayer>(1, 1);
-	SpawnActor<AMonster>(2, 2);
+	std::string Line;
+	int Y = 0;
+
+	while ( std::getline(File, Line) )
+	{
+		for ( int X = 0; X < ( int )Line.length(); ++X )
+		{
+			char Tile = Line[X];
+
+			SpawnActor<AFloor>(X, Y);
+
+			switch ( Tile )
+			{
+			case '#':
+				SpawnActor<AWall>(X, Y);
+				break;
+			case 'P':
+				SpawnActor<APlayer>(X, Y);
+				break;
+			case 'M':
+				SpawnActor<AMonster>(X, Y);
+				break;
+			case 'G':
+				SpawnActor<AGate>(X, Y);
+				break;
+			case '_':
+				break;
+			}
+		}
+		Y++;
+	}
+
+	File.close();
 }
 
 void UWorld::Tick()

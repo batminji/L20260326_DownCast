@@ -7,7 +7,7 @@ int main()
 	UEngine* MyEngine = new UEngine();
 
 	// 생성된 World에 level 로드
-	MyEngine->GetWorld()->Load("NewLevel.umap");
+	MyEngine->GetWorld()->Load("NewLevel.txt");
 	
 	MyEngine->Run();
 

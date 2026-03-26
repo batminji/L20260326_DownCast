@@ -1,7 +1,5 @@
 // #include "stdafx.h"
 #include "Floor.h"
-#include <iostream>
-#include <Windows.h>
 
 AFloor::AFloor(int InX, int InY, int InMesh)
 {

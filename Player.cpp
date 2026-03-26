@@ -1,7 +1,5 @@
 // #include "stdafx.h"
 #include "Player.h"
-#include <iostream>
-#include <Windows.h>
 
 APlayer::APlayer(int InX, int InY, char InMesh)
 {

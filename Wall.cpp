@@ -1,7 +1,5 @@
 // #include "stdafx.h"
 #include "Wall.h"
-#include <iostream>
-#include <Windows.h>
 
 AWall::AWall(int InX, int InY, char InMesh)
 {
