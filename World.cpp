@@ -31,7 +31,6 @@ void UWorld::Load(std::string MapName)
 		return;
 	}
 
-	
 	int Y = 0;
 
 	while ( !MapStream.eof() )
@@ -43,7 +42,6 @@ void UWorld::Load(std::string MapName)
 			char Tile = Line[X];
 
 			SpawnActor<AFloor>()->SetActorLocation({ X, Y });
-
 			switch ( Tile )
 			{
 			case '#':
@@ -77,7 +75,7 @@ void UWorld::Tick(int KeyCode)
 		APlayer* Temp = dynamic_cast<APlayer*>(Actor);
 		if ( Temp )
 		{
-			// Temp->SetActorLocation(KeyCode);
+			Temp->AddActorLocalOffset(GetDirection(KeyCode));
 		}
 		else
 		{
@@ -92,4 +90,26 @@ void UWorld::Render()
 	{
 		Actor->Render();
 	}
+}
+
+FVector2D UWorld::GetDirection(int InKeyCode)
+{
+	switch ( InKeyCode )
+	{
+	case 'w':
+		return { 0, -1 };
+		break;
+	case 's':
+		return { 0, 1 };
+		break;
+	case 'a':
+		return { -1, 0 };
+		break;
+	case 'd':
+		return { 1, 0 };
+		break;
+	default:
+		break;
+	}
+	return {0, 0};
 }

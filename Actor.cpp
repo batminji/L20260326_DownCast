@@ -29,3 +29,9 @@ void AActor::SetActorLocation(FVector2D NewLocation)
 {
 	Location = NewLocation;
 }
+
+void AActor::AddActorLocalOffset(FVector2D LocalOffset)
+{
+	Location.X += LocalOffset.X;
+	Location.Y += LocalOffset.Y;
+}

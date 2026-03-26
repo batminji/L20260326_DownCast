@@ -18,23 +18,17 @@ public:
 		return NewActor;
 	}
 
-	template<typename T>
-	AActor* SpawnActor(FVector2D InLocation, char InMesh) // template function
-	{
-		AActor* NewActor = new T(InLocation, InMesh);
-		Actors.push_back(NewActor);
-
-		return NewActor;
-	}
-
 	void Load(std::string MapName);
 
 	inline std::vector<AActor*>& GetActors()
 	{
 		return Actors;
 	}
+
 	void Tick(int KeyCode);
 	void Render();
+
+	FVector2D GetDirection(int InKeyCode);
 
 protected:
 	std::vector<class AActor*> Actors;
