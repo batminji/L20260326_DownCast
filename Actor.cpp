@@ -19,7 +19,7 @@ void AActor::Tick()
 void AActor::Render()
 {
 	COORD Coordinate;
-	Coordinate.X = X;
+	Coordinate.X = X * 2;
 	Coordinate.Y = Y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Coordinate); // Window API
 

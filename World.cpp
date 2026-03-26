@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "Wall.h"
 #include "Floor.h"
+#include "Monster.h"
 
 UWorld::UWorld()
 {
@@ -20,9 +21,23 @@ UWorld::~UWorld()
 
 void UWorld::Load(std::string MapName)
 {
+	for ( int i = 0; i < 10; ++i )
+	{
+		for ( int j = 0; j < 10; ++j )
+		{
+			if ( i == 0 || i == 9 || j == 0 || j == 9 )
+			{
+				SpawnActor<AWall>(i, j);
+			}
+			else
+			{
+				SpawnActor<AFloor>(i, j);
+			}
+		}
+	}
+
 	SpawnActor<APlayer>(1, 1);
-	SpawnActor<AWall>(0, 0);
-	SpawnActor<AFloor>(1, 0);
+	SpawnActor<AMonster>(2, 2);
 }
 
 void UWorld::Tick()

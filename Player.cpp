@@ -24,10 +24,5 @@ void APlayer::Tick()
 
 void APlayer::Render()
 {
-	COORD Coordinate;
-	Coordinate.X = X;
-	Coordinate.Y = Y;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Coordinate); // Window API
-
-	std::cout << Mesh;
+	__super::Render();
 }
