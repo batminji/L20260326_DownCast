@@ -56,7 +56,7 @@ void UWorld::Load(std::string MapName)
 			case 'G':
 				SpawnActor<AGate>(X, Y);
 				break;
-			case '_':
+			case ' ':
 				break;
 			default:
 				break;
