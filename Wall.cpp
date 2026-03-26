@@ -1,4 +1,4 @@
-// #include "stdafx.h"
+//#include "stdafx.h"
 #include "Wall.h"
 
 AWall::AWall(int InX, int InY, char InMesh)

@@ -58,6 +58,8 @@ void UWorld::Load(std::string MapName)
 				break;
 			case '_':
 				break;
+			default:
+				break;
 			}
 		}
 		Y++;
