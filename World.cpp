@@ -72,15 +72,7 @@ void UWorld::Tick()
 {
 	for (auto Actor : Actors)
 	{
-		APlayer* Temp = dynamic_cast<APlayer*>(Actor);
-		if ( Temp )
-		{
-			// Temp->AddActorLocalOffset(GetDirection(UEngine::KeyCode));
-		}
-		else
-		{
-			Actor->Tick();
-		}
+		Actor->Tick();
 	}
 }
 

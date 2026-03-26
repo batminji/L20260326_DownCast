@@ -44,10 +44,6 @@ void UEngine::Run()
 
 void UEngine::Input()
 {
-	//if ( _kbhit() ) // Key input이 있을 때
-	//{
-	//	KeyCode = _getch();
-	//}
 	KeyCode = _getch();
 }
 
