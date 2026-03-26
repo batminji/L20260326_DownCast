@@ -1,4 +1,4 @@
-//#include "stdafx.h"
+#include "stdafx.h"
 #include "Player.h"
 
 APlayer::APlayer(int InX, int InY, char InMesh)

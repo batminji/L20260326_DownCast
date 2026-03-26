@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Gate.h"
 
 AGate::AGate(int InX, int InY, char InMesh)

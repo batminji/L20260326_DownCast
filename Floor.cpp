@@ -1,4 +1,4 @@
-//#include "stdafx.h"
+#include "stdafx.h"
 #include "Floor.h"
 
 AFloor::AFloor(int InX, int InY, int InMesh)

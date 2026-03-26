@@ -1,6 +1,5 @@
+#include "stdafx.h"
 #include "Actor.h"
-#include <iostream>
-#include <Windows.h>
 
 AActor::~AActor()
 {
