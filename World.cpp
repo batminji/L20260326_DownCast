@@ -68,14 +68,14 @@ void UWorld::Load(std::string MapName)
 	MapStream.close();
 }
 
-void UWorld::Tick(int KeyCode)
+void UWorld::Tick()
 {
 	for (auto Actor : Actors)
 	{
 		APlayer* Temp = dynamic_cast<APlayer*>(Actor);
 		if ( Temp )
 		{
-			Temp->AddActorLocalOffset(GetDirection(KeyCode));
+			// Temp->AddActorLocalOffset(GetDirection(UEngine::KeyCode));
 		}
 		else
 		{

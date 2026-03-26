@@ -25,7 +25,7 @@ public:
 		return Actors;
 	}
 
-	void Tick(int KeyCode);
+	void Tick();
 	void Render();
 
 	FVector2D GetDirection(int InKeyCode);

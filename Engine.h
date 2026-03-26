@@ -28,6 +28,6 @@ protected:
 	UWorld* World;
 
 	int bIsRunning : 1;
-	int KeyCode;
+	static int KeyCode;
 };
 
