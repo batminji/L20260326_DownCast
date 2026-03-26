@@ -6,9 +6,21 @@ class UWorld;
 
 class UEngine
 {
-public:
+protected:
 	UEngine();
+
+	static UEngine* Instance;
+public:
 	~UEngine();
+
+	static UEngine* GetInstance()
+	{
+		if ( Instance == nullptr )
+		{
+			Instance = new UEngine(); // 없으면 생성
+		}
+		return Instance;
+	}
 
 	void Init();
 	void Terminate();
@@ -31,3 +43,4 @@ protected:
 	static int KeyCode;
 };
 
+#define GEngine			UEngine::GetInstance()
